@@ -1,0 +1,2 @@
+DROP DATABASE IF EXISTS lofty_db;
+CREATE DATABASE lofty_db;
