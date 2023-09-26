@@ -11,7 +11,7 @@ Lofty.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    lofty_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },

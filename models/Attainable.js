@@ -11,7 +11,7 @@ Attainable.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    attainable_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
