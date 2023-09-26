@@ -1,0 +1,4 @@
+body {
+    background: linear-gradient(darkgreen, cyan, black);
+    background-repeat: repeat;
+}

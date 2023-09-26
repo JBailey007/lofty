@@ -1,0 +1,50 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Document</title>
+</head>
+<body>
+
+<p>After submitting the form, the object you create will be logged to the console.</p>
+<form>
+  <div>
+    <label for="goal-size">What size is this Goal?</label>
+    <select name="goal-size">
+      <option>Main Goal</option>
+      <option>Sub Goal</option>
+      <option>Small Goal</option>
+      <option>Mini Goal</option>
+    </select>
+  </div>
+  <div>
+    <label for="last-name">Describe your goal: </label>
+    <input type="text" name="goal-text">
+  </div>
+ 
+    <button type="submit">Submit</button>
+</form>
+
+<script>
+
+showResult();
+function showResult() {
+
+const form = document.querySelector('form');
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault(); // Prevent HTML refresh
+  const formData = new FormData(form); // Converts to array of arrays
+  const obj = Object.fromEntries(formData); // Array of arrays to object
+  console.log(obj);
+});
+
+}
+
+</script>
+  
+</body>
+</html>
