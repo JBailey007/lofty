@@ -36,8 +36,8 @@ Goal.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'project',
+    modelName: 'goal',
   }
 );
 
-module.exports = Project;
+module.exports = Goal;
