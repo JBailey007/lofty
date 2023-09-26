@@ -37,6 +37,7 @@ User.init(
     },
   },
   {
+    // do we want to keep the hooks? I figured that we would for bcrypt
     hooks: {
       beforeCreate: async (newUserData) => {
         newUserData.password = await bcrypt.hash(newUserData.password, 10);
