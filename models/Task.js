@@ -11,7 +11,7 @@ Task.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    name: {
+    task_name: {
       type: DataTypes.STRING,
       allowNull: false,
     },
