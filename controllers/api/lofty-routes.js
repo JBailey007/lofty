@@ -2,7 +2,19 @@ const router = require("express").Router();
 const { Task, Attainable, Lofty, User } = require("../../models");
 router.get("/", async (req, res) => {
   try {
-    const data = await Lofty.findAll();
+    const data = await Lofty.findAll({
+      include: [
+        {
+          model: User,
+        },
+      ],
+    });
+    
+
+
+    
+    
+    
     console.log("**************** Get ALL lofty route is hit ************");
     res.status(200).json(data);
   } catch (error) {
