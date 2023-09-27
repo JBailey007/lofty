@@ -15,13 +15,13 @@ Lofty.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    note: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
+    complete: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      defaultValue: false,
     },
     user_id: {
       type: DataTypes.INTEGER,
