@@ -15,18 +15,18 @@ Attainable.init(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    description: {
+    note: {
       type: DataTypes.STRING,
     },
-    date_created: {
-      type: DataTypes.DATE,
+    complete: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
-      defaultValue: DataTypes.NOW,
+      defaultValue: false,
     },
-    user_id: {
+    lofty_id: {
       type: DataTypes.INTEGER,
       references: {
-        model: 'user',
+        model: 'lofty',
         key: 'id',
       },
     },
@@ -36,7 +36,7 @@ Attainable.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'goal',
+    modelName: 'attainable',
   }
 );
 

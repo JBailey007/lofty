@@ -4,13 +4,31 @@ const Lofty = require('./Lofty');
 const Attainable = require('./Attainable');
 
 
-// User.hasMany(Goal, {
-//   foreignKey: 'user_id',
-//   onDelete: 'CASCADE'
-// });
+User.hasMany(Lofty, {
+  foreignKey: 'user_id',
+  onDelete: 'CASCADE'
+});
 
-// Goal.belongsTo(User, {
-//   foreignKey: 'user_id'
-// });
+Lofty.belongsTo(User, {
+  foreignKey: 'user_id'
+});
+
+Lofty.hasMany(Attainable, {
+    foreignKey: 'lofty_id',
+    onDelete: 'CASCADE'
+});
+
+Attainable.belongsTo(Lofty,{
+    foreignKey: 'lofty_id'
+});
+
+Attainable.hasMany(Task,{
+    foreignKey: 'attainable_id',
+    onDelete: 'CASCADE'
+});
+
+Task.belongsTo(Attainable,{
+    foreignKey: 'task_id'
+});
 
 module.exports = { User, Task, Lofty, Attainable };
