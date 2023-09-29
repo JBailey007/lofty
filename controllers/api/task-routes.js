@@ -3,7 +3,8 @@ const { Task, Attainable, Lofty, User } = require("../../models");
 
 router.get("/", async (req, res) => {
   try {
-    const data = await Task.findAll();
+    const data = await Task.findAll(
+    );
     console.log("**************** Get ALL task route is hit ************");
     res.status(200).json(data);
   } catch (error) {

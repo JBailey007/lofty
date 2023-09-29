@@ -1,7 +1,6 @@
 const router = require('express').Router();
-const { Task, Attainable, Lofty, User } = require("../../models");
+const { User } = require("../../models");
 
-// THE FOLLOWING CODE NEEDS TO BE ACTUALLY DONE --- this is the example from mini project
 
 router.post('/', async (req, res) => {
   try {
