@@ -43,36 +43,18 @@
     </header>
     <main>
       <!-- This is where we would like the items that get created to go -->
-      <div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
-        </div>
+      <div id="goalFormTop" class="mb-3">
+        <label id="formFont" for="exampleFormControlInput1" class="form-label">Goal Title</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="This is my Goal" style="background-color: #e3f2fd;">
       </div>
-
-      <div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
-        </div>
-      </div>
-      
-      <div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
-        </div>
+      <div id="goalFormBot" class="mb-3">
+        <label id="formFont" for="exampleFormControlTextarea1" class="form-label">Notes</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" style="background-color: #e3f2fd;"></textarea>
       </div>
     </main>
     <footer>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button class="btn" style="background-color: #e3f2fd;" type="button">+</button>
+        <button class="btn" style="background-color: #e3f2fd;" type="button">Save Goal</button>
       </div>
     </footer>
   </div>
