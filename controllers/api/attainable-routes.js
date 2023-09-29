@@ -2,7 +2,9 @@ const router = require("express").Router();
 const { Task, Attainable, Lofty, User } = require("../../models");
 router.get("/", async (req, res) => {
   try {
-    const data = await Attainable.findAll();
+    const data = await Attainable.findAll({
+      include: [{ model: Task }],
+    });
     console.log("**************** Get ALL attainable is hit ************");
     res.status(200).json(data);
   } catch (error) {
@@ -16,9 +18,13 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
+
+      include: [{ model: Task }],
     });
     if (!data) {
-      res.status(404).json({ message: "No attainable goal found with this id!" });
+      res
+        .status(404)
+        .json({ message: "No attainable goal found with this id!" });
       return;
     }
     console.log("**************    attainable findbyID route hit *********");
@@ -69,7 +75,9 @@ router.delete("/:id", async (req, res) => {
       },
     });
     if (!data) {
-      res.status(404).json({ message: "No attainable goal found with this id!" });
+      res
+        .status(404)
+        .json({ message: "No attainable goal found with this id!" });
       return;
     }
     console.log("**************    attainable Delete route hit *********");

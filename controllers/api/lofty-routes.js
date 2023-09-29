@@ -5,7 +5,12 @@ router.get("/", async (req, res) => {
     const data = await Lofty.findAll({
       include: [
         {
-          model: User,
+          model: Attainable,
+          include: [
+            {
+              model: Task
+            }
+          ]
         },
       ],
     });
@@ -28,6 +33,17 @@ router.get("/:id", async (req, res) => {
       where: {
         id: req.params.id,
       },
+      include: [
+        {
+          model: User,
+        },
+        {
+          model: Attainable,
+        },
+        {
+          model: Task,
+        }
+      ]
     });
     if (!data) {
       res.status(404).json({ message: "No lofty goal found with this id!" });
@@ -53,8 +69,8 @@ router.post("/", async (req, res) => {
 // currently the put route only lets you change the name
 router.put("/:id", async (req, res) => {
   try {
-    const { lofty_name } = req.body;
-    const data = await Lofty.update( { lofty_name } ,
+    const { lofty_name, note } = req.body;
+    const data = await Lofty.update( { lofty_name }, {note} ,
       {
         where: {
           id: req.params.id,
