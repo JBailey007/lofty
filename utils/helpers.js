@@ -8,7 +8,7 @@ module.exports = {
     return parseInt(amount).toLocaleString();
   },
   render_shape: () => {
-    // Return a random emoji
+
     if (goalLevel == "main") {
       return `<div><div class='box gold'></div>=${mainGoalTitle}</div>
       <br>`;
