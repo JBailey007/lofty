@@ -1,7 +1,7 @@
 const newLoftyFormHandler = async (event) => {
     event.preventDefault();
   
-    const loftyName = document.querySelector('#lofty-name').value.trim();
+    const loftyName = document.querySelector('#loftyName').value.trim();
     const loftyNote = document.querySelector('#note').value.trim();
     const loftyComplete = document.querySelector('#complete').value.trim();
   
