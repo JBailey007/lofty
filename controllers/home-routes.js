@@ -2,7 +2,7 @@ const router = require('express').Router();
 const { Task, Attainable, Lofty, User } = require('../models');
 const withAuth = require('../utils/auth');
 
-router.get('/', async (req, res) => {
+router.get('/api/', async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const goalData = await Lofty.findAll({
