@@ -63,7 +63,6 @@ router.get('/attainable', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
         },
       ],
     });
@@ -88,7 +87,6 @@ router.get('/task', async (req, res) => {
       include: [
         {
           model: User,
-          attributes: ['name'],
         },
       ],
     });
