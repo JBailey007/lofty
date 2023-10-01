@@ -1,4 +1,37 @@
-{{#if attainable.length}}
-<div class="lofty-card">
-    {{attainable.parent}}
-</div>
+{{#each goals as |goal| }}
+<div class="card mx-auto" style="width: 18rem; background-color: #CB534F;" onclick="generateAttainable()">
+        <div class="card-body">
+          <h5 class="card-title">{{lofty-name}}</h5>
+          <h6 class="card-subtitle mb-2 text-body-secondary">{{loftyNote}}</h6>
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+          <a href="#" class="card-link">Attainable Goals</a>
+        </div>
+      </div>
+
+<script>
+  function generateAttainable() {
+    const url = '/api/attainable-routes'
+    fetch(url)
+    .then(function(res) {
+        console.log(res.status)
+        return res.json();
+    })
+    .then(function(data) {
+        console.log(data)
+
+        var responseLength = data.response.length
+        for (var i = 1; i < responseLength; i++){
+          var attainableName = data.response[i].attainable_name
+          var attainableNote = data.response[i].note
+          var card = document.createElement('div')
+          list.textContent = `${attainableName} <br> ${attainableNote}`;
+          document.getElementsByClassName('attainable-card').appendChild(card)
+        }
+      }
+    )
+  }
+  
+</script>
+{{/each}}
+
+

@@ -1,36 +1,35 @@
-
-{{#each goals as |goal| }}
-<div class="card mx-auto" style="width: 18rem; background-color: #CB534F;" onclick="generateAttainable()">
-        <div class="card-body">
-          <h5 class="card-title">{{lofty-name}}</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">{{loftyNote}}</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
-        </div>
+<div class="row">
+  <div class="col-md-6">
+    <h2>Login</h2>
+    <form class="form login-form">
+      <div class="form-group">
+        <label for="email-login">email:</label>
+        <input class="form-input" type="text" id="email-login" />
       </div>
+      <div class="form-group">
+        <label for="password-login">password:</label>
+        <input class="form-input" type="password" id="password-login" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">login</button>
+      </div>
+    </form>
+  </div>
+  <div class="col-md-6">
+    <h2>Signup</h2>
+    <form class="form signup-form">
+      <div class="form-group">
+        <label for="email-signup">email:</label>
+        <input class="form-input" type="text" id="email-signup" />
+      </div>
+      <div class="form-group">
+        <label for="password-signup">password:</label>
+        <input class="form-input" type="password" id="password-signup" />
+      </div>
+      <div class="form-group">
+        <button class="btn btn-primary" type="submit">signup</button>
+      </div>
+    </form>
+  </div>
+</div>
 
-<script>
-  function generateAttainable() {
-    const url = '/api/attainable-routes'
-    fetch(url)
-    .then(function(res) {
-        console.log(res.status)
-        return res.json();
-    })
-    .then(function(data) {
-        console.log(data)
-
-        var responseLength = data.response.length
-        for (var i = 1; i < responseLength; i++){
-          var attainableName = data.response[i].attainable_name
-          var attainableNote = data.response[i].note
-          var card = document.createElement('div')
-          list.textContent = `${attainableName} <br> ${attainableNote}`;
-          document.getElementsByClassName('attainable-card').appendChild(card)
-        }
-      }
-    )
-  }
-  
-</script>
-{{/each}}
