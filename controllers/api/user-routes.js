@@ -5,6 +5,7 @@ const { User } = require("../../models");
 router.post('/', async (req, res) => {
   try {
     const userData = await User.create(req.body);
+    console.log(userData)
     
     req.session.save(() => {
       req.session.user_id = userData.id;
@@ -14,7 +15,7 @@ router.post('/', async (req, res) => {
     });
   } catch (err) {
     res.status(400).json(err);
-    console.log("Here is the error");
+    console.log(err);
   }
 });
 
@@ -59,5 +60,18 @@ router.post('/logout', (req, res) => {
     res.status(404).end();
   }
 });
+
+
+  router.get("/list", async (req, res) => {
+    try {
+      const data = await User.findAll(
+      );
+      console.log("**************** Get ALL user route is hit ************");
+      res.status(200).json(data);
+    } catch (error) {
+      res.status(500).json(error);
+    }
+  });
+
 
 module.exports = router;

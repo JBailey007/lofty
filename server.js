@@ -28,7 +28,6 @@ const sess = {
     db: sequelize
   })
 };
-console.log(sess.secret)
 
 app.use(session(sess));
 
