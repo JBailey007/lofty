@@ -27,9 +27,22 @@
         </div>
       </div>
 {{/each}}
+<form class="form signup-form new-lofty-form">
+  <div class="mb-3">
+    <label for="exampleFormControlInput1" class="form-label">Add Goal</label>
+    <input type="text" class="form-control"  placeholder="Write the title of your goal here!">
+  </div>
+  <div class="mb-3">
+    <label for="exampleFormControlTextarea1" class="form-label">Write some notes about your goal!</label>
+    <textarea class="form-control" rows="3"></textarea>
+  </div>
+  <button class="btn" style="background-color: #e3f2fd;" type="submit">SAVE</button>
+</form>
 
  <footer>
       <div class="d-grid gap-2 col-6 mx-auto">
-        <button href="/addGoal" class="btn" style="background-color: #e3f2fd;" type="button">+</button>
+        <button href="api/user/lofty" class="btn" style="background-color: #e3f2fd;" type="button">+</button>
       </div>
-    </footer>
+  </footer>
+
+  <script src="/js/goal.js"></script>

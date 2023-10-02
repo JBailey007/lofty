@@ -40,7 +40,7 @@ const newLoftyFormHandler = async (event) => {
   
   document
     .querySelector('.new-lofty-form')
-    .addEventListener('submit', newLoftyFormHandler);
+    .addEventListener('click', newLoftyFormHandler);
   
   document
     .querySelector('.lofty-list')
