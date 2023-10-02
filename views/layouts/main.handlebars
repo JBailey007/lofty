@@ -35,6 +35,11 @@
                 <a class="nav-link" href="api/users/login">Login</a>
                  <!-- {{/if}} -->
               </li>
+              <li class="nav-item">
+                 <!-- Conditionally render login or logout links -->
+                 <!-- {{#if logged_in}} -->
+                <a id="logout" class="nav-link" href="api/users/logout">Logout</a>
+              </li>
             </ul>
           </div>
         </div>
@@ -43,11 +48,11 @@
     <main>
       {{{ body }}}
     </main>
-    <footer>
+    {{!-- <footer>
       <div class="d-grid gap-2 col-6 mx-auto">
         <button class="btn" style="background-color: #e3f2fd;" type="button">+</button>
       </div>
-    </footer>
+    </footer> --}}
   </div>
 
   <!-- Render script for logged in users only -->
