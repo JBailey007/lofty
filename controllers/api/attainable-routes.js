@@ -27,7 +27,7 @@ router.get("/:id", async (req, res) => {
         .json({ message: "No attainable goal found with this id!" });
       return;
     }
-    console.log("**************    attainable findbyID route hit *********");
+    console.log("**************  attainable findbyID route hit *********");
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json(error);

@@ -57,25 +57,25 @@ router.get('/login', (req, res) => {
   res.render('login');
 });
 // -------------------------------------------------------------------------------------------
-router.get('/attainable', async (req, res) => {
+router.get('/attainable', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const goalData = await Attainable.findAll({
+    const attainableData = await Attainable.findAll({
       include: [
         {
-          model: User,
-          attributes: []
+          model: Lofty,
+          attributes: ["id"]
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const goals = goalData.map((goal) => goal.get({ plain: true }));
+    const attainables = attainableData.map((attainable) => attainable.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('attainable', { 
-      goals,
-      // logged_in: req.session.logged_in ------------------NEED TO TURN ON
+      attainables,
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);

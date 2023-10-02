@@ -30,15 +30,14 @@ router.get("/:id", async (req, res) => {
       },
       include: [
         {
-          model: User,
-        },
-        {
           model: Attainable,
+          include: [
+            {
+              model: Task
+            }
+          ]
         },
-        {
-          model: Task,
-        }
-      ]
+      ],
     });
     if (!data) {
       res.status(404).json({ message: "No lofty goal found with this id!" });
