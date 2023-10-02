@@ -3,6 +3,7 @@
         <div class="card-body">
           <h5 class="card-title">{{attainable.attainable_name}}</h5>
           <p class="card-text">{{attainable.note}}</p>
+          <input type="hidden" id="{{attainable.attainable_name}}" value="{{lofty.id}}">
           <a href="task" class="card-link">Tasks to complete {{attainable.attainable_name}}</a>
         </div>
       </div>
