@@ -9,7 +9,7 @@ router.get('/lofty', withAuth, async (req, res) => {
       include: [
         {
           model: User,
-          attributes: [],
+          attributes: []
         },
       ],
     });

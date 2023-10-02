@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Task, Attainable, Lofty, User } = require("../../models");
+const withAuth = require('../../utils/auth');
 router.get("/", async (req, res) => {
   try {
     const data = await Lofty.findAll({
@@ -50,9 +51,13 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const data = await Lofty.create(req.body);
+    const newLoftyData = {
+      ...req.body,
+      user_id: req.session.user_id,
+    }
+    const data = await Lofty.create(newLoftyData);
     console.log("************ lofty post route is hit ************");
     res.status(200).json(data);
   } catch (error) {
