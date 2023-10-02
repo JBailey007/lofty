@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const { Task, Attainable, Lofty, User } = require("../../models");
+const withAuth = require('../../utils/auth');
 router.get("/", async (req, res) => {
   try {
     const data = await Attainable.findAll({
@@ -27,16 +28,20 @@ router.get("/:id", async (req, res) => {
         .json({ message: "No attainable goal found with this id!" });
       return;
     }
-    console.log("**************  attainable findbyID route hit *********");
+    console.log("**************    attainable findbyID route hit *********");
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json(error);
   }
 });
 
-router.post("/", async (req, res) => {
+router.post("/", withAuth, async (req, res) => {
   try {
-    const data = await Attainable.create(req.body);
+    const newAttainableData = {
+      ...req.body,
+      user_id: req.session.user_id,
+    } 
+    const data = await Attainable.create(newAttainableData);
     console.log("************ attainable post route is hit ************");
     res.status(200).json(data);
   } catch (error) {
