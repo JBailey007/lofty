@@ -19,13 +19,8 @@ router.get('/lofty', withAuth, async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('lofty', { 
-<<<<<<< Updated upstream
-      ...goals,
-      // logged_in: req.session.logged_in ------------------NEED TO TURN ON
-=======
       goals,
-      // logged_in: req.session.logged_in
->>>>>>> Stashed changes
+      logged_in: req.session.logged_in
     });
   } catch (err) {
     res.status(500).json(err);
@@ -69,6 +64,7 @@ router.get('/attainable', async (req, res) => {
       include: [
         {
           model: User,
+          attributes: []
         },
       ],
     });
@@ -110,7 +106,7 @@ router.get('/task', async (req, res) => {
   }
 });
 
-router.get('/', withAuth, async (req, res) => {
+router.get('/addGoal', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
     const goalData = await Lofty.findAll({
