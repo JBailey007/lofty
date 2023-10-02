@@ -1,41 +1,26 @@
 
-{{#each goals as |goal| }}
-<div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
+{{#each tasks as |task| }}
+<div class="card mx-auto" style="width: 18rem; background-color: #53A586;">
         <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
-        </div>
-      </div>
-
-      <div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
-        </div>
-      </div>
-      
-      <div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
-        <div class="card-body">
-          <h5 class="card-title">Card title</h5>
-          <h6 class="card-subtitle mb-2 text-body-secondary">Card subtitle</h6>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-          <a href="#" class="card-link">Attainable Goals</a>
+          <h5 class="card-title">{{task.task_name}}</h5>
+          <p class="card-text">{{task.note}}</p>
+          <a href="task" class="card-link">Tasks to complete {{task.task_name}}</a>
         </div>
       </div>
 {{/each}}
 
-<div class="mb-3">
-  <label for="exampleFormControlInput1" class="form-label">Add Goal</label>
-  <input type="text" class="form-control" id="addgoal" placeholder="Write the title of your goal here!">
+<div>
+<form class="form new-task-form">
+  <div class="mb-3">
+    <label for="task_name"class="form-label">Add Goal</label>
+    <input id="task_name" type="text" class="form-control" placeholder="Write the title of your goal here!">
+  </div>
+  <div class="mb-3">
+    <label for="note"class="form-label">Write some notes about your goal!</label>
+    <textarea id="note" class="form-control" rows="3"></textarea>
+  </div>
+  <button id="task-button" class="btn" style="background-color: #e3f2fd;" type="submit">SAVE</button>
+</form>
 </div>
-<div class="mb-3">
-  <label for="exampleFormControlTextarea1" class="form-label">Write some notes about your goal!</label>
-  <textarea class="form-control" id="addgoal" rows="3"></textarea>
-</div>
-<button class="btn" style="background-color: #e3f2fd;" type="button">SAVE</button>
 
-<script src="/js/goal.js"></script>
+  <script src="/js/tasks.js"></script>
