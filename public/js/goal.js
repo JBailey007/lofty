@@ -8,7 +8,7 @@ const newLoftyFormHandler = async (event) => {
   if (lofty_name && note) {
     const response = await fetch(`/api/lofty`, {
       method: 'POST',
-      body: JSON.stringify({ lofty_name, note}),
+      body: JSON.stringify({ lofty_name, note, id}),
       headers: {
         'Content-Type': 'application/json',
       },
@@ -45,54 +45,47 @@ const newLoftyFormHandler = async (event) => {
   //   .addEventListener('click', delButtonHandlerLofty);
 
     //ATTAINABLE
-//     const newAttainableFormHandler = async (event) => {
-//         event.preventDefault();
+    const newAttainableFormHandler = async (event) => {
+      event.preventDefault();
+    
+      const attainable_name = document.querySelector('#attainable_name').value.trim();
+      const note = document.querySelector('#note').value.trim();
+      // const complete = document.querySelector('#complete').value.trim();
+    
+      if (attainable_name && note) {
+        const response = await fetch(`/api/attainable`, {
+          method: 'POST',
+          body: JSON.stringify({ attainable_name, note}),
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        console.log(await response.json());
+      }
+        console.log("This has been clicked");
+    };
+        // if (response.ok) {
       
-//         const attainableName = document.querySelector('#attainable-name').value.trim();
-//         const attainableNote = document.querySelector('#note').value.trim();
-//         const attainableComplete = document.querySelector('#complete').value.trim();
+      // const delButtonHandlerLofty = async (event) => {
+      //   if (event.target.hasAttribute('data-id')) {
+      //     const id = event.target.getAttribute('data-id');
       
-//         if (attainableName && attainableNote && attainableComplete) {
-//           const response = await fetch(`/api/attainable-routes`, {
-//             method: 'POST',
-//             body: JSON.stringify({ attainableName, attainableNote, attainableComplete }),
-//             headers: {
-//               'Content-Type': 'application/json',
-//             },
-//           });
+      //     const response = await fetch(`/api/lofty-routes/${id}`, {
+      //       method: 'DELETE',
+      //     });
       
-//           if (response.ok) {
-//             document.location.replace('/ ');
-//           } else {
-//             alert('Failed to create attainable');
-//           }
-//         }
-//       };
+      //     if (response.ok) {
+      //       document.location.replace('/lofty-routes');
+      //     } else {
+      //       alert('Failed to delete lofty');
+      //     }
+      //   }
+      // };
       
-//       const delButtonHandlerAttainable = async (event) => {
-//         if (event.target.hasAttribute('data-id')) {
-//           const id = event.target.getAttribute('data-id');
-      
-//           const response = await fetch(`/api/attainable-routes/${id}`, {
-//             method: 'DELETE',
-//           });
-      
-//           if (response.ok) {
-//             document.location.replace('/attainable-routes');
-//           } else {
-//             alert('Failed to delete attainable');
-//           }
-//         }
-//       };
-      
-//       document
-//         .querySelector('.new-attainable-form')
-//         .addEventListener('submit', newAttainableFormHandler);
-      
-//       document
-//         .querySelector('.attainable-list')
-//         .addEventListener('click', delButtonHandlerAttainable);
-      
+      document
+        .querySelector('.new-attainable-form')
+        .addEventListener('submit', newAttainableFormHandler);
+        
 // //TASK
 // const newTaskFormHandler = async (event) => {
 //     event.preventDefault();
