@@ -5,7 +5,7 @@ const withAuth = require('../utils/auth');
 router.get('/lofty', withAuth, async (req, res) => {
   try {
     // Get all projects and JOIN with user data
-    const goalData = await Lofty.findAll({
+    const loftyData = await Lofty.findAll({
       include: [
         {
           model: User,
@@ -15,11 +15,11 @@ router.get('/lofty', withAuth, async (req, res) => {
     });
 
     // Serialize data so the template can read it
-    const goals = goalData.map((goal) => goal.get({ plain: true }));
+    const loftys = loftyData.map((lofty) => lofty.get({ plain: true }));
 
     // Pass serialized data and session flag into template
     res.render('lofty', { 
-      goals,
+      loftys,
       logged_in: req.session.logged_in
     });
   } catch (err) {
