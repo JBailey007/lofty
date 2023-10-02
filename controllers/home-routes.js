@@ -19,7 +19,7 @@ router.get('/lofty', async (req, res) => {
 
     // Pass serialized data and session flag into template
     res.render('lofty', { 
-      goals,
+      ...goals,
       // logged_in: req.session.logged_in ------------------NEED TO TURN ON
     });
   } catch (err) {
@@ -104,29 +104,29 @@ router.get('/task', async (req, res) => {
   }
 });
 
-// router.get('/user', async (req, res) => {
-//   try {
-//     // Get all projects and JOIN with user data
-//     const goalData = await User.findAll({
-//       include: [
-//         {
-//           model: User,
-//           attributes: ['name'],
-//         },
-//       ],
-//     });
+router.get('/', withAuth, async (req, res) => {
+  try {
+    // Get all projects and JOIN with user data
+    const goalData = await Lofty.findAll({
+      include: [
+        {
+          model: User,
+          attributes: [],
+        },
+      ],
+    });
 
-//     // Serialize data so the template can read it
-//     const goals = goalData.map((goal) => goal.get({ plain: true }));
+    // Serialize data so the template can read it
+    const goals = goalData.map((goal) => goal.get({ plain: true }));
 
-//     // Pass serialized data and session flag into template
-//     res.render('login', { 
-//       goals,
-//       // logged_in: req.session.logged_in ------------------NEED TO TURN ON
-//     });
-//   } catch (err) {
-//     res.status(500).json(err);
-//   }
-// });
+    // Pass serialized data and session flag into template
+    res.render('addGoal', { 
+      goals,
+      // logged_in: req.session.logged_in ------------------NEED TO TURN ON
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 module.exports = router;

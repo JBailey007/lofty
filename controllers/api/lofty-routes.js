@@ -60,6 +60,9 @@ router.post("/", async (req, res) => {
   try {
     const data = await Lofty.create(req.body);
     console.log("************ lofty post route is hit ************");
+    res.render('addGoal', { 
+      goals,
+    });
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json(error);
