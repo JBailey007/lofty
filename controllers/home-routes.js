@@ -83,6 +83,8 @@ router.get('/attainable', withAuth, async (req, res) => {
 });
 router.get('/lofty/:id', withAuth, async (req, res) => {
   try {
+    const id = req.params.id
+    // console.log(id)
     // Get all projects and JOIN with user data
     const attainableData = await Attainable.findAll({
       include: [
@@ -92,10 +94,11 @@ router.get('/lofty/:id', withAuth, async (req, res) => {
         },
       ],
     });
-
+    // console.log(attainableData)
     // Serialize data so the template can read it
-    const attainables = attainableData.map((attainable) => attainable.get({ plain: true }));
-
+    const attainables = attainableData.map((attainable) => attainable.get({ plain: true })).filter( (x) => x.lofty_parent == id);
+    // const loftyAttainables = attainables.filter( (x) => x.lofty_parent == id);
+    console.log(attainables)
     // Pass serialized data and session flag into template
     res.render('attainable', { 
       attainables,

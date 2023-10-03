@@ -39,7 +39,7 @@ router.post("/", withAuth, async (req, res) => {
   try {
     const newAttainableData = {
       ...req.body,
-      user_id: req.session.user_id,
+      // user_id: req.session.user_id,
     } 
     const data = await Attainable.create(newAttainableData);
     console.log("************ attainable post route is hit ************");

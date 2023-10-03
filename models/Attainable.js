@@ -23,8 +23,13 @@ Attainable.init(
       allowNull: false,
       defaultValue: false,
     },
+    lofty_parent: {
+      type: DataTypes.INTEGER,
+      allowNull:false
+    },
     lofty_id: {
       type: DataTypes.INTEGER,
+      // allowNull: false
       references: {
         model: 'lofty',
         key: 'id',

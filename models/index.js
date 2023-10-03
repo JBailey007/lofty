@@ -19,7 +19,7 @@ Lofty.hasMany(Attainable, {
 });
 
 Attainable.belongsTo(Lofty,{
-    foreignKey: 'lofty_id'
+  
 });
 
 Attainable.hasMany(Task,{
