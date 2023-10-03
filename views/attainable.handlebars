@@ -1,6 +1,6 @@
 {{#each attainables as |attainable| }}
 <div class="card mx-auto" style="width: 18rem; background-color: #C48F22;">
-        <div class="card-body">
+        <div class="card-body animate__animated animate__fadeInLeftBig">
           <h5 class="card-title">{{attainable.attainable_name}}</h5>
           <p class="card-text">{{attainable.note}}</p>
           <input type="hidden" id="{{attainable.attainable_name}}" value="{{lofty.id}}">
