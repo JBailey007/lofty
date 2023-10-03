@@ -3,12 +3,13 @@ const newTaskFormHandler = async (event) => {
   
     const task_name = document.querySelector('#task_name').value.trim();
     const note = document.querySelector('#note').value.trim();
+    const attainable_parent = document.URL[document.URL.length - 1]
     // const complete = document.querySelector('#complete').value.trim();
   
     if (task_name && note) {
       const response = await fetch(`/api/task`, {
         method: 'POST',
-        body: JSON.stringify({ task_name, note}),
+        body: JSON.stringify({ task_name, note, attainable_parent}),
         headers: {
           'Content-Type': 'application/json',
         },

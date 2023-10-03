@@ -23,6 +23,10 @@ Task.init(
       allowNull: false,
       defaultValue: false,
     },
+    attainable_parent: {
+      type: DataTypes.INTEGER,
+      allowNull:false
+    },
     attainable_id: {
       type: DataTypes.INTEGER,
       references: {
