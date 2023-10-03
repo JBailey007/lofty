@@ -1,5 +1,5 @@
 {{#each attainables as |attainable| }}
-<div class="card mx-auto animate__animated animate__fadeInLeftBig" style="width: 18rem; background-color: #C48F22;">
+<div class="card mx-auto animate__animated animate__fadeInLeftBig" style="width: 18rem; background-color: #rgba(196, 143, 34, .7);">
         <div class="card-body">
           <h5 class="card-title">{{attainable.attainable_name}}</h5>
           <p class="card-text">{{attainable.note}}</p>
@@ -9,14 +9,14 @@
       </div>
 {{/each}}
 
-<div>
+<div class="animate__animated animate__fadeInUp animate__delay-1s">
 <form class="form new-attainable-form">
-  <div class="mb-3">
-    <label for="attainable_name"class="form-label">Add Goal</label>
+  <div class="mb-3 animate__animated animate__fadeInUp animate__delay-1s">
+    <label for="attainable_name"class="form-label login-text animate__animated animate__fadeInUp animate__delay-1s">Add Goal</label>
     <input id="attainable_name" type="text" class="form-control" placeholder="Write the title of your goal here!">
   </div>
-  <div class="mb-3">
-    <label for="note"class="form-label">Write some notes about your goal!</label>
+  <div class="mb-3 animate__animated animate__fadeInUp animate__delay-1.5s">
+    <label for="note"class="form-label login-text animate__animated animate__fadeInUp animate__delay-1s">Write some notes about your goal!</label>
     <textarea id="note" class="form-control" rows="3"></textarea>
   </div>
   <button id="attainable-button" class="btn" style="background-color: #e3f2fd;" type="submit" onclick="setTimeout(function(){window.location.reload();},10);">SAVE</button>
