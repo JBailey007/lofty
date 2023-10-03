@@ -29,7 +29,6 @@ Attainable.init(
     },
     lofty_id: {
       type: DataTypes.INTEGER,
-      // allowNull: false
       references: {
         model: 'lofty',
         key: 'id',

@@ -108,6 +108,33 @@ router.get('/lofty/:id', withAuth, async (req, res) => {
     res.status(500).json(err);
   }
 });
+router.get('/attainable/:id', withAuth, async (req, res) => {
+  try {
+    const id = req.params.id
+    // console.log(id)
+    // Get all projects and JOIN with user data
+    const taskData = await Task.findAll({
+      include: [
+        {
+          model: Attainable,
+          attributes: ["id"]
+        },
+      ],
+    });
+    // console.log(attainableData)
+    // Serialize data so the template can read it
+    const tasks = taskData.map((task) => task.get({ plain: true })).filter( (x) => x.attainable_parent == id);
+    // const loftyAttainables = attainables.filter( (x) => x.lofty_parent == id);
+    console.log(tasks)
+    // Pass serialized data and session flag into template
+    res.render('task', { 
+      tasks,
+      logged_in: req.session.logged_in
+    });
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
 
 router.get('/task', async (req, res) => {
   try {
