@@ -4,18 +4,20 @@ const withAuth = require('../utils/auth');
 
 router.get('/lofty', withAuth, async (req, res) => {
   try {
+    const id = req.session.user_id
+    console.log(`********ID is : ${id}`)
     // Get all projects and JOIN with user data
     const loftyData = await Lofty.findAll({
       include: [
         {
           model: User,
-          attributes: []
+          attributes: ["id"]
         },
       ],
     });
 
     // Serialize data so the template can read it
-    const loftys = loftyData.map((lofty) => lofty.get({ plain: true }));
+    const loftys = loftyData.map((lofty) => lofty.get({ plain: true })).filter( (x) => x.user_id == id);
 
     // Pass serialized data and session flag into template
     res.render('lofty', { 
