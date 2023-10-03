@@ -3,7 +3,8 @@
         <div class="card-body">
           <h5 class="card-title">{{attainable.attainable_name}}</h5>
           <p class="card-text">{{attainable.note}}</p>
-          <a href="/attainable/{{attainable.id}}" class="card-link">Tasks to complete {{attainable.attainable_name}}</a>
+          <input type="hidden" id="{{attainable.attainable_name}}" value="{{lofty.id}}">
+          <a href="attainable/{{attainable.id}}" class="task-card-link">Tasks to complete {{attainable.attainable_name}}</a>
         </div>
       </div>
 {{/each}}
@@ -18,7 +19,7 @@
     <label for="note"class="form-label">Write some notes about your goal!</label>
     <textarea id="note" class="form-control" rows="3"></textarea>
   </div>
-  <button id="attainable-button" class="btn" style="background-color: #e3f2fd;" type="submit">SAVE</button>
+  <button id="attainable-button" class="btn" style="background-color: #e3f2fd;" type="submit" onclick="setTimeout(function(){window.location.reload();},10);">SAVE</button>
 </form>
 </div>
 

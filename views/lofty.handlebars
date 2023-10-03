@@ -2,15 +2,15 @@
 {{#each loftys as |lofty| }}
 <div class="card mx-auto" style="width: 18rem; background-color: #CB534F;">
         <div class="card-body">
-          <h5 class="card-title">{{lofty.lofty_name}}</h5>
+          <h5 class="card-title">  {{lofty.lofty_name}}</h5>
           <p class="card-text">{{lofty.note}}</p>
           <input type="hidden" id="{{lofty.lofty_name}}" value="{{lofty.id}}">
-          <a href="lofty/{{lofty.id}}" class="card-link">Attainable Goals</a>
+          <a href="lofty/{{lofty.id}}" class="attainable-card-link">Attainable Goals</a>
         </div>
       </div>
 {{/each}}
 <div>
-<form class="form new-lofty-form">
+<form  class="form new-lofty-form">
   <div class="mb-3">
     <label for="lofty_name"class="form-label">Add Goal</label>
     <input id="lofty_name" type="text" class="form-control" placeholder="Write the title of your goal here!">
@@ -19,7 +19,7 @@
     <label for="note"class="form-label">Write some notes about your goal!</label>
     <textarea id="note" class="form-control" rows="3"></textarea>
   </div>
-  <button class="btn" style="background-color: #e3f2fd;" type="submit">SAVE</button>
+  <button class="btn" style="background-color: #e3f2fd;" type="submit" onclick="setTimeout(function(){window.location.reload();},10);">SAVE</button>
 </form>
 </div>
 

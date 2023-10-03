@@ -10,7 +10,7 @@
 {{/each}}
 
 <div>
-<form class="form new-task-form">
+<form class="form new-task-form" >
   <div class="mb-3">
     <label for="task_name"class="form-label">Add Goal</label>
     <input id="task_name" type="text" class="form-control" placeholder="Write the title of your goal here!">
@@ -19,7 +19,7 @@
     <label for="note"class="form-label">Write some notes about your goal!</label>
     <textarea id="note" class="form-control" rows="3"></textarea>
   </div>
-  <button id="task-button" class="btn" style="background-color: #e3f2fd;" type="submit">SAVE</button>
+  <button id="task-button" class="btn" style="background-color: #e3f2fd;" type="submit" onclick="setTimeout(function(){window.location.reload();},10);">SAVE</button>
 </form>
 </div>
 
