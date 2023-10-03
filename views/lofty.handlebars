@@ -1,6 +1,6 @@
 
 {{#each loftys as |lofty| }}
-<div class="card mx-auto animate__animated animate__fadeInLeftBig" style="width: 18rem; background-color: #CB534F;">
+<div class="card mx-auto animate__animated animate__fadeInLeftBig" style="width: 18rem; background-color: rgba(203, 83, 79, .7);">
         <div class="card-body">
           <h5 class="card-title">  {{lofty.lofty_name}}</h5>
           <p class="card-text">{{lofty.note}}</p>
@@ -12,11 +12,11 @@
 <div>
 <form  class="form new-lofty-form">
   <div class="mb-3">
-    <label for="lofty_name"class="form-label">Add Goal</label>
+    <label for="lofty_name"class="form-label login-text">Add Goal</label>
     <input id="lofty_name" type="text" class="form-control" placeholder="Write the title of your goal here!">
   </div>
   <div class="mb-3">
-    <label for="note"class="form-label">Write some notes about your goal!</label>
+    <label for="note"class="form-label login-text" >Write some notes about your goal!</label>
     <textarea id="note" class="form-control" rows="3"></textarea>
   </div>
   <button class="btn" style="background-color: #e3f2fd;" type="submit" onclick="setTimeout(function(){window.location.reload();},10);">SAVE</button>
