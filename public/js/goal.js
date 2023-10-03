@@ -20,22 +20,6 @@ const newLoftyFormHandler = async (event) => {
 };
     // if (response.ok) {
   
-  // const delButtonHandlerLofty = async (event) => {
-  //   if (event.target.hasAttribute('data-id')) {
-  //     const id = event.target.getAttribute('data-id');
-  
-  //     const response = await fetch(`/api/lofty-routes/${id}`, {
-  //       method: 'DELETE',
-  //     });
-  
-  //     if (response.ok) {
-  //       document.location.replace('/lofty-routes');
-  //     } else {
-  //       alert('Failed to delete lofty');
-  //     }
-  //   }
-  // };
-  
   document
     .querySelector('.new-lofty-form')
     .addEventListener('submit', newLoftyFormHandler);

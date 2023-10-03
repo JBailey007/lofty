@@ -86,6 +86,28 @@ footer {
     margin-right: 30px;
     margin-bottom: 20px;
 }
+
+.card-title {
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.card-text {
+  background-color: aliceblue;
+  border-radius: 5px;
+}
+
+.attainable-card-link {
+  font-weight: bolder;
+  color: #C48F22;
+  border-radius: 5px;
+}
+
+.task-card-link {
+  font-weight: bolder;
+  color: #53A586;;
+  border-radius: 5px;
+}
 /* Media Queries */
 @media screen and (max-width: 768px) {
     header,
