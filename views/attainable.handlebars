@@ -1,26 +1,49 @@
-{{#each attainables as |attainable| }}
-<div class="card mx-auto animate__animated animate__fadeInLeftBig" style="width: 18rem; background-color: #rgba(196, 143, 34, .7);">
+<div class="row">
+  <div class="col-md-4 ps-4">
+    {{#each attainables as |attainable|}}
+      <div
+        class="card mx-auto animate__animated animate__fadeInLeftBig"
+        style="width: 18rem; background-color: rgba(242, 61, 233, 0.709);"
+      >
         <div class="card-body">
-          <h5 class="card-title">{{attainable.attainable_name}}</h5>
+          <h5 class="card-title">Attainable ~ {{attainable.attainable_name}}</h5>
           <p class="card-text">{{attainable.note}}</p>
-          <input type="hidden" id="{{attainable.attainable_name}}" value="{{lofty.id}}">
-          <a href="/attainable/{{attainable.id}}" class="task-card-link">Tasks to complete</a>
+          <a href="/attainable/{{attainable.id}}" class="task-card-link card-link">Tasks
+            to complete to finish this</a>
         </div>
       </div>
-{{/each}}
-
-<div class="animate__animated animate__fadeInUp animate__delay-1s">
-<form class="form new-attainable-form">
-  <div class="mb-3 animate__animated animate__fadeInUp animate__delay-1s">
-    <label for="attainable_name"class="form-label login-text animate__animated animate__fadeInUp animate__delay-1s">Add Goal</label>
-    <input id="attainable_name" type="text" class="form-control" placeholder="Write the title of your goal here!">
+    {{/each}}
   </div>
-  <div class="mb-3 animate__animated animate__fadeInUp animate__delay-1.5s">
-    <label for="note"class="form-label login-text animate__animated animate__fadeInUp animate__delay-1s">Write some notes about your goal!</label>
-    <textarea id="note" class="form-control" rows="3"></textarea>
+  <div class="col-md-8 animate__animated animate__fadeInUp">
+    <form class="form new-attainable-form">
+      <div class="mb-3 animate__animated animate__fadeInUp">
+        <label
+          for="attainable_name"
+          class="form-label login-text animate__animated animate__fadeInUp"
+        >Add Goal</label>
+        <input
+          id="attainable_name"
+          type="text"
+          class="form-control"
+          placeholder="Write your Attainable goal here!"
+        />
+      </div>
+      <div class="mb-3 animate__animated animate__fadeInUp">
+        <label
+          for="note"
+          class="form-label login-text animate__animated animate__fadeInUp"
+        >Write some notes about your goal!</label>
+        <textarea id="note" class="form-control" rows="3"></textarea>
+      </div>
+      <button
+        id="attainable-button"
+        class="btn"
+        style="background-color: #e3f2fd;"
+        type="submit"
+        onclick="setTimeout(function(){window.location.reload();},10);"
+      >SAVE</button>
+    </form>
   </div>
-  <button id="attainable-button" class="btn" style="background-color: #e3f2fd;" type="submit" onclick="setTimeout(function(){window.location.reload();},10);">SAVE</button>
-</form>
 </div>
 
-  <script src="/js/attainable.js"></script>
+<script src="/js/attainable.js"></script>
