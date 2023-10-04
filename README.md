@@ -8,27 +8,40 @@ We created this app in order to break down goals into smaller actually achievabl
 Javascript
 Handlebars JS
 NodeJS
+dotenv
 ExpressJS
 Animate.CSS
+bcrypt
 Bootstrap
 Sequelize
 MySQL
+nodemon
 
 
 
-<details>
-<summary> Link to live site & screenshots </summary>
+## Link to live site & screenshots
 
-[Lofty!](https://itsmenickfromschool.github.io/animalsWow02/)
+##[Lofty](https://itsmenickfromschool.github.io/animalsWow02/)
  
 Main screen/Home page
-![Screenshot of homepage]()
+![Screenshot of homepage](public/assets/logIn.png)
+
+Lofty Goals
+![Screenshot of Lofty goals page](public/assets/Loftygoals.png)
+
+Attainable Goals
+![Screenshot of Lofty goals page](public/assets/attainable.png)
+
+Tasks
+![Screenshot of Lofty goals page](public/assets/tasks.png)
 
 
 
-<details>
-<summary> Process Summary </summary>
-We divided the groups based on our strengths  
+
+
+
+
+We divided the groups based on our strengths. Everyone worked on some aspects of the frontend and the backend, we did a lot of coding together within the group in meetings, this way we all learned new skills and helped with strengths and weeknesses. Liz Made our Canva.
 
 </details>
 
@@ -38,7 +51,7 @@ We divided the groups based on our strengths
 
 The James Webb Telescope provided our background Image
 
-This is our [Canva presentation document]():
+This is our [Canva presentation document](https://www.canva.com/design/DAFwKEL2kEQ/5m07ZozNEzwSv9nwD1Z1TA/edit):
 
 The Instructional Staff at EDX helped us with learning as well as debugging help and suggestions. They include:
 
